@@ -2,7 +2,7 @@
  * @Author: unfetteredman 
  * @Date: 2021-09-30 17:00:06 
  * @Last Modified by: unfetteredman
- * @Last Modified time: 2021-10-09 16:10:14
+ * @Last Modified time: 2021-10-09 16:43:49
  */
 
 const User = require('../model/user.model')
@@ -27,7 +27,7 @@ module.exports = new class UserServie {
       attributes: ['id', 'user_name', 'password', 'is_admin'],
       where: whereOpt
     })
-    console.log(`aaa`, aaa)
+    console.log(`res`, res)
     return res ? res.dataValues : null
   }
 }

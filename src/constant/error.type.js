@@ -12,8 +12,33 @@ module.exports = {
     result: ''
   },
   userRegistError: {
-    code: '100002',
+    code: '100003',
     msg: '用户注册失败',
+    result: ''
+  },
+  validateLoginError: {
+    code: '100004',
+    msg: '密码错误，登录失败！',
+    result: ''
+  },
+  LoginError: {
+    code: '100005',
+    msg: '登录获取用户信息失败！',
+    result: ''
+  },
+  userDoNotExited: {
+    code: '100006',
+    msg: '用户不存在！',
+    result: ''
+  },
+  TokenExpiredError: {
+    code: '101001',
+    msg: 'token已过期！',
+    result: ''
+  }, 
+  invalidTokenError: {
+    code: '101002',
+    msg: 'token验证失败！',
     result: ''
   }
 }

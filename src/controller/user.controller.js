@@ -2,12 +2,12 @@
  * @Author: unfetteredman
  * @Date: 2021-09-30 16:57:51
  * @Last Modified by: unfetteredman
- * @Last Modified time: 2021-10-11 16:07:08
+ * @Last Modified time: 2021-10-11 20:21:58
  * @description: 创建用户的controller类
  */
 const { createUser } = require('../service/index');
 
-const { getUserInfo } = require('../service/index')
+const { getUserInfo, updataUserInfo } = require('../service/index')
 
 const jwt = require('jsonwebtoken')
 
@@ -44,8 +44,21 @@ module.exports = new class User {
   };
   // 修改用户信息
   async changeUserInfo (ctx) {
-    ctx.body = {
-      msg: '修改用户信息成功！'
+    const id = ctx.state.user.id
+    const password = ctx.request.body.password
+    if(await updataUserInfo({id,password})) {
+      ctx.body = {
+        code: '100001',
+        msg: '修改用户信息成功！',
+        result: ''
+      }
+    }else {
+      ctx.body = {
+        code: '100002',
+        msg: '修改用户信息失败！',
+        result: ''
+      }
     }
+   
   }
 }

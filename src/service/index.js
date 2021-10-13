@@ -2,7 +2,7 @@
  * @Author: unfetteredman 
  * @Date: 2021-09-30 17:00:06 
  * @Last Modified by: unfetteredman
- * @Last Modified time: 2021-10-09 16:43:49
+ * @Last Modified time: 2021-10-11 19:48:38
  */
 
 const User = require('../model/user.model')
@@ -29,5 +29,19 @@ module.exports = new class UserServie {
     })
     console.log(`res`, res)
     return res ? res.dataValues : null
+  }
+
+  // 修改用户信息
+  async updataUserInfo ({id, user_name, password, is_admin}) {
+    let whereOpt = { id };
+    let newUser = {}
+    id && Object.assign(newUser, {id});
+    user_name && Object.assign(newUser, {user_name});
+    password && Object.assign(newUser, {password});
+    is_admin && Object.assign(newUser, {is_admin});
+    const res = await User.update( newUser, {
+      where: whereOpt
+    });
+    return res[0] > 0 ? true : false
   }
 }

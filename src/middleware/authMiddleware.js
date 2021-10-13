@@ -1,7 +1,7 @@
 
 const jwt = require('jsonwebtoken');
 
-const { TokenExpiredError, invalidTokenError } = require('../constant/error.type')
+const { TokenExpiredError, invalidTokenError, notAdmitPermissionError } = require('../constant/error.type')
 
 const SECRETKEY = "unfetteredman" // jwt 密钥
 
@@ -28,6 +28,14 @@ const auth = async (ctx, next) => {
   }
 }
 
+const hadAdminpermission  = async (ctx, next) => {
+  const { is_admin } = ctx.state.user;
+  if(!is_admin) {
+    return ctx.app.emit('error', notAdmitPermissionError, ctx)
+  }
+  await next();
+}
 module.exports = {
-  auth
+  auth,
+  hadAdminpermission,
 }

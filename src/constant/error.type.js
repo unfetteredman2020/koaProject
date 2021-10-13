@@ -40,5 +40,10 @@ module.exports = {
     code: '101002',
     msg: 'token验证失败！',
     result: ''
+  },
+  notAdmitPermissionError: {
+    code: '101003',
+    msg: '没有管理员权限！',
+    result: ''
   }
 }

@@ -28,9 +28,12 @@ const Goods = sequelize.define('goods', {
     type: DataTypes.STRING,
     allowNull: false,
     comment: '商品描述'
-  },
-})
+  }},
+  {
+    paranoid: true
+  }
+)
 
-// goods.sync({ force: true });
+// Goods.sync({ force: true });
 
 module.exports  = Goods

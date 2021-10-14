@@ -1,8 +1,8 @@
 const path = require('path')
 
-const { uploadParamsError, uploadGoodsError } = require('../constant/error.type')
+const { uploadParamsError, uploadGoodsError, invalidGoodsIDError } = require('../constant/error.type')
 
-const { createGoods, updateGoodsService } = require('../service/goods.service')
+const { createGoodsService, updateGoodsService, offGoodsService, restoreGoodsService } = require('../service/goods.service')
 
 class GoodsController {
   async upload (ctx) {
@@ -17,8 +17,8 @@ class GoodsController {
       }
     }
   }
-
-  async goodsUpload (ctx) {
+  // 创建商品
+  async goodsUploadController (ctx) {
     try {
       ctx.verifyParams({
         goods_name: {type: 'string', required: true},
@@ -30,7 +30,7 @@ class GoodsController {
       try {
         console.log(`object`, ctx.request.body)
         ctx.request.body.goods_img = JSON.stringify(ctx.request.body.goods_img)
-        const res = await createGoods(ctx.request.body)
+        const res = await createGoodsService(ctx.request.body)
         ctx.body = {
           code: '102000',
           msg: '上传商品成功',
@@ -47,7 +47,8 @@ class GoodsController {
       return ctx.app.emit('error', uploadParamsError, ctx)
     }
   }
-  async goodsUpdate (ctx)  {
+  // 更新商品
+  async goodsUpdateController (ctx)  {
     console.log(`ctx`, ctx.params.id)
     try {
       ctx.request.body.goods_img = JSON.stringify(ctx.request.body.goods_img )
@@ -58,16 +59,39 @@ class GoodsController {
           result: ''
         }
       }else {
-        ctx.body = {
-          code: '100002',
-          msg: '修改商品信息失败！',
-          result: ''
-        }
+        return ctx.app.emit('error', invalidGoodsIDError, ctx)
       }
     } catch (error) {
       console.log(`error is`, error)
     }
   }
+  // 下架商品
+  async offGoodsController(ctx) {
+    const id = ctx.request.params
+    console.log(`id`, ctx.request.params.id)
+    if(await offGoodsService(ctx.request.params.id)){
+      ctx.body = {
+        code: '0',
+        msg: '下架商品成功',
+        result: ''
+      }
+    }else {
+      return ctx.app.emit('error', invalidGoodsIDError, ctx)
+    }
+  }
+  // 上架商品
+  async restoreGoodController(ctx) {
+    if(await restoreGoodsService(ctx.request.params.id)){
+      ctx.body = {
+        code: '0',
+        msg: '上架商品成功',
+        result: ''
+      }
+    }else {
+      return ctx.app.emit('error', invalidGoodsIDError, ctx)
+    }
+  }
 }
+
 
 module.exports = new GoodsController()

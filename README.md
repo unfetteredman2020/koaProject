@@ -24,3 +24,24 @@
       router.put('/updateGoods/:id',auth,hadAdminpermission, goodsUpdate)
       ```
       * 方法同上，ID使用ctx.params可以获取当前路由参数
+  * 3，上架商品
+    * 1，创建商品时，通过配置model层的 `{ paranoid: true }` 字段使用软删除方法，调用destroy方法并不会直接从数据库删除商品
+    * 2，调用destroy方法，加上条件 ` force: true` 即可
+        ```
+          posts.destroy({
+            where: {
+              id: 1
+            },
+            force: true
+          });
+          // DELETE FROM "posts" WHERE "id" = 1
+        ```
+  * 4，重新上架商品
+    * 1，已经下架的商品，重新上架可调用model层实例的restore方法，并通过where条件即可重新上架该商品
+        ```
+        await Goods.restore({
+              where: { id }
+            })
+            return  res > 0 ? true : false
+          }
+        ```

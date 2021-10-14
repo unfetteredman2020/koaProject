@@ -56,4 +56,9 @@ module.exports = {
     msg: '上传商品失败，请重试！',
     result: ''
   },
+  invalidGoodsIDError: {
+    code: '102003',
+    msg: '该商品不存在！',
+    result: ''
+  }
 }

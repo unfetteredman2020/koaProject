@@ -28,7 +28,7 @@
     * 1，创建商品时，通过配置model层的 `{ paranoid: true }` 字段使用软删除方法，调用destroy方法并不会直接从数据库删除商品
     * 2，调用destroy方法，加上条件 ` force: true` 即可
         ```
-          posts.destroy({
+          Goods.destroy({
             where: {
               id: 1
             },
@@ -45,3 +45,14 @@
             return  res > 0 ? true : false
           }
         ```
+  * 5，获取全部商品列表（支持分页查询）
+    * 1，分页查询可根据pageSize，pageNum查询
+    * 2，根据 `const  offset = (pageNum -1) * pageSize` 计算得出offset偏移量；
+      ```
+      // 方法一：
+        const rows = await Goods.findAll({ offset, limit: pageSize*1})
+        const count = await Goods.count()
+        // 方法二：
+        const { count, rows } = await Goods.findAndCountAll({offset, limit: pageSize})
+      ```
+    * 3，两种不同得方法可得到总共满足条件的total数据和分页的list数据；

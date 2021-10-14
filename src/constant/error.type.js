@@ -60,5 +60,10 @@ module.exports = {
     code: '102003',
     msg: '该商品不存在！',
     result: ''
+  },
+  selectGoodsError: {
+    code: '102004',
+    msg: '获取商品失败',
+    result: ''
   }
 }

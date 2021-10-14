@@ -1,8 +1,8 @@
 const path = require('path')
 
-const { uploadParamsError, uploadGoodsError, invalidGoodsIDError } = require('../constant/error.type')
+const { uploadParamsError, uploadGoodsError, invalidGoodsIDError, selectGoodsError } = require('../constant/error.type')
 
-const { createGoodsService, updateGoodsService, offGoodsService, restoreGoodsService } = require('../service/goods.service')
+const { createGoodsService, updateGoodsService, offGoodsService, restoreGoodsService, getGoodsListService } = require('../service/goods.service')
 
 class GoodsController {
   async upload (ctx) {
@@ -89,6 +89,22 @@ class GoodsController {
       }
     }else {
       return ctx.app.emit('error', invalidGoodsIDError, ctx)
+    }
+  }
+  // 
+  async getGoodsListController(ctx) {
+    try {
+      const { pageSize, pageNum } = ctx.request.query;
+      const res = await getGoodsListService(pageSize, pageNum);
+      ctx.body = {
+        code: '0',
+        msg: '获取商品列表成功！',
+        result: res
+      }
+    } catch (error) {
+      console.error('getGoodsListController', error)
+      selectGoodsError.result = error
+      return  ctx.app.emit('error', selectGoodsError, ctx)
     }
   }
 }

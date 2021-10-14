@@ -45,5 +45,15 @@ module.exports = {
     code: '101003',
     msg: '没有管理员权限！',
     result: ''
-  }
+  },
+  uploadParamsError: {
+    code: '102001',
+    msg: '上传参数错误，请检查参数类型！',
+    result: ''
+  },
+  uploadGoodsError: {
+    code: '102002',
+    msg: '上传商品失败，请重试！',
+    result: ''
+  },
 }

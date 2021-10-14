@@ -2,12 +2,12 @@
  * @Author: unfetteredman 
  * @Date: 2021-09-30 17:00:06 
  * @Last Modified by: unfetteredman
- * @Last Modified time: 2021-10-11 19:48:38
+ * @Last Modified time: 2021-10-13 15:50:46
  */
 
 const User = require('../model/user.model')
 
-module.exports = new class UserServie {
+ class UserServie {
 
   // 创建用户
   async createUser (user_name, password) {
@@ -45,3 +45,5 @@ module.exports = new class UserServie {
     return res[0] > 0 ? true : false
   }
 }
+
+module.exports = new UserServie()

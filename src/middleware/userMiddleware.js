@@ -1,5 +1,5 @@
 const bcryptjjs = require('bcryptjs')
-const { getUserInfo } = require('../service/index')
+const { getUserInfo } = require('../service/user.service')
 
 const { userFormatError, userAllreadyExited, userRegistError, LoginError, validateLoginError, userDoNotExited } = require('../constant/error.type');
 

@@ -22,10 +22,11 @@ module.exports = (err, ctx) => {
   let errTxt = `
     /* ${getDate("YYYY-mm-dd HH:MM:SS", new Date())} */
     /* ------------------------------------------------------------------------------------------ */
-    ${err}
+    ${JSON.stringify(err)}
   `
   fs.appendFile( errorLogPath, errTxt,{encoding: 'utf-8'}, err=> {
-    if(err) console.log(`err`, err)
-    console.log(`randmNum`, errTxt)
+    if(err) {
+      return console.error(`err`, err)
+    }
   })
 }

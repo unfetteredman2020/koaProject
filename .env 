@@ -5,3 +5,5 @@ APP_DB_USERPASSWORD = 123456
 APP_DB_PORT = 3306
 APP_DB_DB = koadb
 APP_DB_HOST = localhost
+
+APP_EMAIL_passPerson = xzslrioxnfvtdfbf

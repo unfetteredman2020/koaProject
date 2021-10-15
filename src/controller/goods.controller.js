@@ -15,41 +15,29 @@ class GoodsController {
           upload_img: path.basename(file.path)
         }
       }
+    }else {
+      return ctx.app.emit('error', uploadParamsError, ctx)
     }
   }
   // 创建商品
   async goodsUploadController (ctx) {
     try {
-      ctx.verifyParams({
-        goods_name: {type: 'string', required: true},
-        goods_num: {type: 'number', required: true},
-        goods_price: {type: 'number', required: true},
-        goods_img:  {type: 'array', required: true, itemType: 'string'},
-        goods_description: {type: 'string', required: true}
-      });
-      try {
-        console.log(`object`, ctx.request.body)
-        ctx.request.body.goods_img = JSON.stringify(ctx.request.body.goods_img)
-        const res = await createGoodsService(ctx.request.body)
-        ctx.body = {
-          code: '102000',
-          msg: '上传商品成功',
-          result: res
-        }
-      } catch (error) {
-        console.error(`创建商品 error`, error)
-        uploadGoodsError.result = error
-        return ctx.app.emit('error', uploadGoodsError, ctx)
+      ctx.request.body.goods_img = JSON.stringify(ctx.request.body.goods_img)
+      const res = await createGoodsService(ctx.request.body)
+      console.log(`res222`, res)
+      ctx.body = {
+        code: '102000',
+        msg: '上传商品成功',
+        result: res
       }
     } catch (error) {
-      console.error('err upload', error)
-      uploadParamsError.result = error  // 将错误对象传给result对象上面返回给接口
-      return ctx.app.emit('error', uploadParamsError, ctx)
+      console.error(`创建商品 error`, error)
+      uploadGoodsError.result = error
+      return ctx.app.emit('error', uploadGoodsError, ctx)
     }
   }
   // 更新商品
   async goodsUpdateController (ctx)  {
-    console.log(`ctx`, ctx.params.id)
     try {
       ctx.request.body.goods_img = JSON.stringify(ctx.request.body.goods_img )
       if(await updateGoodsService(ctx.params.id, ctx.request.body)) {
@@ -62,13 +50,11 @@ class GoodsController {
         return ctx.app.emit('error', invalidGoodsIDError, ctx)
       }
     } catch (error) {
-      console.log(`error is`, error)
+      console.log(`error is`, error);
     }
   }
   // 下架商品
   async offGoodsController(ctx) {
-    const id = ctx.request.params
-    console.log(`id`, ctx.request.params.id)
     if(await offGoodsService(ctx.request.params.id)){
       ctx.body = {
         code: '0',
@@ -76,7 +62,7 @@ class GoodsController {
         result: ''
       }
     }else {
-      return ctx.app.emit('error', invalidGoodsIDError, ctx)
+      return ctx.app.emit('error', invalidGoodsIDError, ctx);
     }
   }
   // 上架商品
@@ -88,10 +74,10 @@ class GoodsController {
         result: ''
       }
     }else {
-      return ctx.app.emit('error', invalidGoodsIDError, ctx)
+      return ctx.app.emit('error', invalidGoodsIDError, ctx);
     }
   }
-  // 
+  // 获取商品列表
   async getGoodsListController(ctx) {
     try {
       const { pageSize, pageNum } = ctx.request.query;
@@ -102,7 +88,7 @@ class GoodsController {
         result: res
       }
     } catch (error) {
-      console.error('getGoodsListController', error)
+      console.error('getGoodsListController', error);
       selectGoodsError.result = error
       return  ctx.app.emit('error', selectGoodsError, ctx)
     }

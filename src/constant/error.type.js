@@ -65,5 +65,20 @@ module.exports = {
     code: '102004',
     msg: '获取商品失败',
     result: ''
+  },
+  validatorGoodsParamsError: {
+    code: '103000',
+    msg: '商品参数错误！',
+    result: ''
+  },
+  addCartError: {
+    code: '103001',
+    msg: '添加购物车失败！',
+    result: ''
+  },
+  validateGoodsIdExistServiceError: {
+    code: '103001',
+    msg: '该商品不存在！',
+    result: ''
   }
 }

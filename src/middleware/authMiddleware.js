@@ -17,8 +17,7 @@ const auth = async (ctx, next) => {
     ctx.state.user = user
     await next();
   } catch(err) {
-    // err
-    console.log(`auth err`, err.name )
+    console.log(`auth err`, err )
     switch (err.name) {
       case 'TokenExpiredError':
         console.error('error', 'token过期',err)

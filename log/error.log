@@ -95,3 +95,119 @@
     /* ------------------------------------------------------------------------------------------ */
     {}
   
+    /* 2021-10-14 17:18:24 */
+    /* ------------------------------------------------------------------------------------------ */
+    {"code":"101002","msg":"token验证失败！","result":""}
+  
+    /* 2021-10-14 17:28:26 */
+    /* ------------------------------------------------------------------------------------------ */
+    {"code":"103000","msg":"商品参数错误！","result":""}
+  
+    /* 2021-10-14 17:30:37 */
+    /* ------------------------------------------------------------------------------------------ */
+    {"code":"103000","msg":"商品参数错误！","result":""}
+  
+    /* 2021-10-14 17:30:38 */
+    /* ------------------------------------------------------------------------------------------ */
+    {"code":"103000","msg":"商品参数错误！","result":""}
+  
+    /* 2021-10-14 17:31:33 */
+    /* ------------------------------------------------------------------------------------------ */
+    {"code":"103000","msg":"商品参数错误！","result":""}
+  
+    /* 2021-10-14 17:32:31 */
+    /* ------------------------------------------------------------------------------------------ */
+    {"code":"103000","msg":"商品参数错误！","result":{"message":"Validation Failed","code":"INVALID_PARAM","errors":[{"message":"should be a number","code":"invalid","field":"goods_id"}],"params":{"goods_id":"1"}}}
+  
+    /* 2021-10-14 17:49:37 */
+    /* ------------------------------------------------------------------------------------------ */
+    {"code":"103000","msg":"商品参数错误！","result":{"message":"Validation Failed","code":"INVALID_PARAM","errors":[{"message":"should be a number","code":"invalid","field":"goods_id"}],"params":{"goods_id":"1"}}}
+  
+    /* 2021-10-14 19:24:57 */
+    /* ------------------------------------------------------------------------------------------ */
+    {"code":"103000","msg":"商品参数错误！","result":{}}
+  
+    /* 2021-10-14 19:38:05 */
+    /* ------------------------------------------------------------------------------------------ */
+    {"code":"103000","msg":"商品参数错误！","result":{"message":"Validation Failed","code":"INVALID_PARAM","errors":[{"message":"required","field":"goods_count","code":"missing_field"},{"message":"required","field":"goods_sku","code":"missing_field"},{"message":"required","field":"user_name","code":"missing_field"},{"message":"required","field":"user_id","code":"missing_field"}],"params":{"goods_id":1}}}
+  
+    /* 2021-10-14 19:39:10 */
+    /* ------------------------------------------------------------------------------------------ */
+    {"code":"103000","msg":"商品参数错误！","result":[{"message":"required","field":"goods_count","code":"missing_field"},{"message":"required","field":"goods_sku","code":"missing_field"},{"message":"required","field":"user_name","code":"missing_field"},{"message":"required","field":"user_id","code":"missing_field"}]}
+  
+    /* 2021-10-14 19:39:28 */
+    /* ------------------------------------------------------------------------------------------ */
+    {"code":"103000","msg":"商品参数错误！","result":4}
+  
+    /* 2021-10-14 19:42:10 */
+    /* ------------------------------------------------------------------------------------------ */
+    {"code":"103000","msg":"商品参数错误！","result":{"message":"Validation Failed","code":"INVALID_PARAM","errors":[{"message":"required","field":"goods_count","code":"missing_field"},{"message":"required","field":"goods_sku","code":"missing_field"},{"message":"required","field":"user_name","code":"missing_field"},{"message":"required","field":"user_id","code":"missing_field"}],"params":{"goods_id":1}}}
+  
+    /* 2021-10-14 19:52:50 */
+    /* ------------------------------------------------------------------------------------------ */
+    {"code":"100002","msg":"用户已存在！","result":""}
+  
+    /* 2021-10-15 10:37:08 */
+    /* ------------------------------------------------------------------------------------------ */
+    {"code":"103000","msg":"商品参数错误！","result":{}}
+  
+    /* 2021-10-15 10:40:16 */
+    /* ------------------------------------------------------------------------------------------ */
+    {"code":"103000","msg":"商品参数错误！","result":{"message":"Validation Failed","code":"INVALID_PARAM","errors":[{"message":"should be an array","code":"invalid","field":"goods_img"},{"message":"should be a string","code":"invalid","field":"goods_selected"}],"params":{"user_id":"123456","goods_id":1,"goods_num":2,"goods_price":100,"goods_img":"","goods_sku":["黑色","200h"],"goods_selected":0}}}
+  
+    /* 2021-10-15 10:40:44 */
+    /* ------------------------------------------------------------------------------------------ */
+    {"code":"103000","msg":"商品参数错误！","result":{"message":"Validation Failed","code":"INVALID_PARAM","errors":[{"message":"should be a string","code":"invalid","field":"goods_selected"}],"params":{"user_id":"123456","goods_id":1,"goods_num":2,"goods_price":100,"goods_img":["黑色","200h"],"goods_sku":["黑色","200h"],"goods_selected":0}}}
+  
+    /* 2021-10-15 14:18:36 */
+    /* ------------------------------------------------------------------------------------------ */
+    {"code":"101001","msg":"token已过期！","result":""}
+  
+    /* 2021-10-15 14:26:52 */
+    /* ------------------------------------------------------------------------------------------ */
+    {"code":"103001","msg":"添加购物车失败！","result":{"name":"SequelizeValidationError","errors":[{"message":"goods_img cannot be an array or an object","type":"string violation","path":"goods_img","value":["黑色","200h"],"origin":"CORE","instance":{"id":null,"user_id":"123456","goods_id":1,"goods_count":2,"goods_price":100,"goods_img":["黑色","200h"],"goods_sku":["黑色","200h"],"goods_selected":0,"updatedAt":"2021-10-15T06:26:52.620Z","createdAt":"2021-10-15T06:26:52.620Z"},"validatorKey":"not_a_string","validatorName":null,"validatorArgs":[]},{"message":"goods_sku cannot be an array or an object","type":"string violation","path":"goods_sku","value":["黑色","200h"],"origin":"CORE","instance":{"id":null,"user_id":"123456","goods_id":1,"goods_count":2,"goods_price":100,"goods_img":["黑色","200h"],"goods_sku":["黑色","200h"],"goods_selected":0,"updatedAt":"2021-10-15T06:26:52.620Z","createdAt":"2021-10-15T06:26:52.620Z"},"validatorKey":"not_a_string","validatorName":null,"validatorArgs":[]}]}}
+  
+    /* 2021-10-15 14:29:31 */
+    /* ------------------------------------------------------------------------------------------ */
+    {"code":"103001","msg":"添加购物车失败！","result":{"name":"SequelizeValidationError","errors":[{"message":"goods_img cannot be an array or an object","type":"string violation","path":"goods_img","value":["黑色"],"origin":"CORE","instance":{"id":null,"user_id":"123456","goods_id":1,"goods_count":2,"goods_price":100,"goods_img":["黑色"],"goods_sku":["黑色"],"goods_selected":0,"updatedAt":"2021-10-15T06:29:31.559Z","createdAt":"2021-10-15T06:29:31.559Z"},"validatorKey":"not_a_string","validatorName":null,"validatorArgs":[]},{"message":"goods_sku cannot be an array or an object","type":"string violation","path":"goods_sku","value":["黑色"],"origin":"CORE","instance":{"id":null,"user_id":"123456","goods_id":1,"goods_count":2,"goods_price":100,"goods_img":["黑色"],"goods_sku":["黑色"],"goods_selected":0,"updatedAt":"2021-10-15T06:29:31.559Z","createdAt":"2021-10-15T06:29:31.559Z"},"validatorKey":"not_a_string","validatorName":null,"validatorArgs":[]}]}}
+  
+    /* 2021-10-15 14:30:07 */
+    /* ------------------------------------------------------------------------------------------ */
+    {"code":"103001","msg":"添加购物车失败！","result":{"name":"SequelizeValidationError","errors":[{"message":"goods_img cannot be an array or an object","type":"string violation","path":"goods_img","value":["https://www.baidu.com"],"origin":"CORE","instance":{"id":null,"user_id":"123456","goods_id":1,"goods_count":2,"goods_price":100,"goods_img":["https://www.baidu.com"],"goods_sku":["黑色"],"goods_selected":0,"updatedAt":"2021-10-15T06:30:07.721Z","createdAt":"2021-10-15T06:30:07.721Z"},"validatorKey":"not_a_string","validatorName":null,"validatorArgs":[]},{"message":"goods_sku cannot be an array or an object","type":"string violation","path":"goods_sku","value":["黑色"],"origin":"CORE","instance":{"id":null,"user_id":"123456","goods_id":1,"goods_count":2,"goods_price":100,"goods_img":["https://www.baidu.com"],"goods_sku":["黑色"],"goods_selected":0,"updatedAt":"2021-10-15T06:30:07.721Z","createdAt":"2021-10-15T06:30:07.721Z"},"validatorKey":"not_a_string","validatorName":null,"validatorArgs":[]}]}}
+  
+    /* 2021-10-15 14:30:56 */
+    /* ------------------------------------------------------------------------------------------ */
+    {"code":"103001","msg":"添加购物车失败！","result":{"name":"SequelizeValidationError","errors":[{"message":"goods_img cannot be an array or an object","type":"string violation","path":"goods_img","value":["https://www.baidu.com"],"origin":"CORE","instance":{"id":null,"user_id":"123456","goods_id":1,"goods_count":2,"goods_price":100,"goods_img":["https://www.baidu.com"],"goods_sku":["黑色"],"goods_selected":0,"updatedAt":"2021-10-15T06:30:56.164Z","createdAt":"2021-10-15T06:30:56.164Z"},"validatorKey":"not_a_string","validatorName":null,"validatorArgs":[]},{"message":"goods_sku cannot be an array or an object","type":"string violation","path":"goods_sku","value":["黑色"],"origin":"CORE","instance":{"id":null,"user_id":"123456","goods_id":1,"goods_count":2,"goods_price":100,"goods_img":["https://www.baidu.com"],"goods_sku":["黑色"],"goods_selected":0,"updatedAt":"2021-10-15T06:30:56.164Z","createdAt":"2021-10-15T06:30:56.164Z"},"validatorKey":"not_a_string","validatorName":null,"validatorArgs":[]}]}}
+  
+    /* 2021-10-15 14:50:18 */
+    /* ------------------------------------------------------------------------------------------ */
+    {"code":"103001","msg":"该商品不存在！","result":{"name":"SequelizeDatabaseError","parent":{"code":"ER_BAD_FIELD_ERROR","errno":1054,"sqlState":"42S22","sqlMessage":"Unknown column 'cart.good_id' in 'where clause'","sql":"SELECT `goods_id` FROM `carts` AS `cart` WHERE `cart`.`good_id` = 1 LIMIT 1;"},"original":{"code":"ER_BAD_FIELD_ERROR","errno":1054,"sqlState":"42S22","sqlMessage":"Unknown column 'cart.good_id' in 'where clause'","sql":"SELECT `goods_id` FROM `carts` AS `cart` WHERE `cart`.`good_id` = 1 LIMIT 1;"},"sql":"SELECT `goods_id` FROM `carts` AS `cart` WHERE `cart`.`good_id` = 1 LIMIT 1;"}}
+  
+    /* 2021-10-15 16:11:40 */
+    /* ------------------------------------------------------------------------------------------ */
+    {"code":"103001","msg":"该商品不存在！","result":""}
+  
+    /* 2021-10-15 16:12:18 */
+    /* ------------------------------------------------------------------------------------------ */
+    {"code":"103001","msg":"该商品不存在！","result":""}
+  
+    /* 2021-10-15 16:12:25 */
+    /* ------------------------------------------------------------------------------------------ */
+    {"code":"103001","msg":"该商品不存在！","result":""}
+  
+    /* 2021-10-15 16:13:05 */
+    /* ------------------------------------------------------------------------------------------ */
+    {"code":"103001","msg":"该商品不存在！","result":""}
+  
+    /* 2021-10-15 16:15:32 */
+    /* ------------------------------------------------------------------------------------------ */
+    {"code":"103001","msg":"该商品不存在！","result":""}
+  
+    /* 2021-10-15 16:15:38 */
+    /* ------------------------------------------------------------------------------------------ */
+    {"code":"103001","msg":"该商品不存在！","result":""}
+  
+    /* 2021-10-15 16:52:55 */
+    /* ------------------------------------------------------------------------------------------ */
+    {"code":"103001","msg":"该商品不存在！","result":""}
+  

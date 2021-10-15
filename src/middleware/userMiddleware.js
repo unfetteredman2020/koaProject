@@ -22,8 +22,7 @@ const VerifyUser = async (ctx, next) => {
     const res = await getUserInfo({user_name});
     if(res) {
       ctx.status = 409;
-      ctx.app.emit('error', userAllreadyExited, ctx );
-      return;
+      return  ctx.app.emit('error', userAllreadyExited, ctx );
     }
   } catch (error) {
     console.error(`error`, error)

@@ -4,7 +4,7 @@ class GoodsService {
   async createGoodsService(goodsParams) {
     const res = await Goods.create(goodsParams)
     console.log(`res`, res)
-    return res.dataValues
+    return res
   }
 
   async updateGoodsService(id, goods) {

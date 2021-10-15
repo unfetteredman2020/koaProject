@@ -49,10 +49,30 @@
     * 1，分页查询可根据pageSize，pageNum查询
     * 2，根据 `const  offset = (pageNum -1) * pageSize` 计算得出offset偏移量；
       ```
-      // 方法一：
+        // 方法一：
         const rows = await Goods.findAll({ offset, limit: pageSize*1})
         const count = await Goods.count()
         // 方法二：
         const { count, rows } = await Goods.findAndCountAll({offset, limit: pageSize})
       ```
     * 3，两种不同得方法可得到总共满足条件的total数据和分页的list数据；
+  * 6，购物车
+    * 1，步骤同上，新建路由router，封装validator中间件（校验参数），新建controller控制器，新建service业务层，新建model数据层；
+    * 2，where条件需要从 `const { Op } = require('sequelize')` 倒入Op这个方法使用and查询，如果没有这条记录则创建
+      ```
+          const { user_id, goods_id } = goods
+          let res = await Cart.findOne({
+            where: {
+              [Op.and]: {
+                goods_id,
+                user_id,
+              }
+            }
+          })
+          if(res) {
+            await res.increment('goods_count')
+            return  await res.reload()
+          }else {
+            return await  Cart.create(goods)
+          }
+      ```

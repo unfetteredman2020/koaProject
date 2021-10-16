@@ -80,5 +80,25 @@ module.exports = {
     code: '103001',
     msg: '该商品不存在！',
     result: ''
+  },
+  getCartListError: {
+    code: '103002',
+    msg: '获取购物车列表失败！',
+    result: ''
+  },
+  validaterParamsError: {
+    code: '103003',
+    msg: '参数错误，请检查参数！',
+    result: ''
+  },
+  validateCartParamsError: {
+    code: '103004',
+    msg: '参数格式错误，请重新填写！',
+    result: ''
+  },
+  updateCartError: {
+    code: '103006',
+    msg: '更新购物车失败！',
+    result: ''
   }
 }

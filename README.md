@@ -56,23 +56,54 @@
         const { count, rows } = await Goods.findAndCountAll({offset, limit: pageSize})
       ```
     * 3，两种不同得方法可得到总共满足条件的total数据和分页的list数据；
-  * 6，购物车
+  * 6，添加购物车
     * 1，步骤同上，新建路由router，封装validator中间件（校验参数），新建controller控制器，新建service业务层，新建model数据层；
     * 2，where条件需要从 `const { Op } = require('sequelize')` 倒入Op这个方法使用and查询，如果没有这条记录则创建
       ```
-          const { user_id, goods_id } = goods
-          let res = await Cart.findOne({
-            where: {
-              [Op.and]: {
-                goods_id,
-                user_id,
-              }
+        const { user_id, goods_id } = goods
+        let res = await Cart.findOne({
+          where: {
+            [Op.and]: {
+              goods_id,
+              user_id,
             }
-          })
-          if(res) {
-            await res.increment('goods_count')
-            return  await res.reload()
-          }else {
-            return await  Cart.create(goods)
           }
+        })
+        if(res) {
+          await res.increment('goods_count')
+          return  await res.reload()
+        }else {
+          return await  Cart.create(goods)
+        }
       ```
+  * 7，获取购物车列表
+    * 1，添加路由`router`，新增`controller`控制器，新增`server`业务层，新增`model`数据层
+    * 2，获取购物车列表实现分页查询；
+      ```
+        const offset = (pageNum-1) * pageSize; //计算offset偏移量
+        let { rows, count } = await Cart.findAndCountAll({ //findAndCountAll可以查询得到数据和符合条件的total总数；
+          offset,
+          limit: pageSize * 1,
+          include: {
+            model: Goods,
+            as: 'goods_info', //  Goods表别名
+            attributes: ['goods_name','goods_price','goods_img']  //  Goods表对应的列数据
+          }
+        })
+      ```
+    * 3，购物车查询实现连表查询，在model层
+      ```
+      Cart.belongsTo(Goods,{
+        foreignKey: 'goods_id', //  外键名；
+        as: 'goods_info'  //  Goods表的别名；
+      })
+      ```
+  * 8，更新购物车
+    * 1，步骤同上，在service层，调用Cart实例的 `findByPk` 方法,查询结果res通过调用属性方法去直接赋值即可，最后调用 `res.save()` 方法即可；
+    ```
+      const res = await Cart.findByPk(id);  // 通过参数Id去匹配查询
+      if(!res) return null
+      goods_count ? (res.goods_count = goods_count): '';  
+      goods_selected ? (res.goods_selected = goods_selected) : '';
+      return await  res.save()
+    ```

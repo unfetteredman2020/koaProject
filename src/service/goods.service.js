@@ -1,4 +1,4 @@
-
+const { Op } = require('sequelize')
 const Goods  = require('../model/goods.model')
 class GoodsService {
   async createGoodsService(goodsParams) {
@@ -40,6 +40,18 @@ class GoodsService {
       list: rows
     }
   }
+
+  async validateGoodsIdExistService (id) {
+    let res = await Goods.findOne({
+      where: {
+        [Op.and]: {
+          id
+        }
+      }
+    })
+    return res ? res.dataValues : null
+  }
+
 }
 
 module.exports = new GoodsService()

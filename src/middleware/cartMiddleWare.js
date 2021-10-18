@@ -1,6 +1,8 @@
-const { validatorGoodsParamsError, validateGoodsIdExistServiceError, validaterParamsError, validateCartParamsError} = require('../constant/error.type');
+const { validatorGoodsParamsError, validateGoodsIdExistServiceError, validaterParamsError, validateCartParamsError, validateCartIdExitedError } = require('../constant/error.type');
 
 const { validateGoodsIdExistService } = require('../service/goods.service')
+
+const { validateCartIdExistService } = require('../service/cart.service')
 
 // 校验上传商品参数格式
 const validator = async (ctx, next) => {
@@ -71,9 +73,30 @@ const validateRules = rules => {
   }
 }
 
+// 验证购物车id是否存在
+const validateCartIdExited = async (ctx, next) => {
+  try {
+    console.log(`ctx.request.body`, ctx.request.body)
+    ctx.verifyParams({
+      ids: 'array'
+    })
+    const res = await validateCartIdExistService(ctx.request.body.ids)
+    console.log(`res`, res)
+    if(res) {
+      await next()
+    }else {
+      return  ctx.app.emit('error', validateCartIdExitedError, ctx)
+    }
+  } catch (error) {
+    validateCartIdExitedError.result = error
+    return  ctx.app.emit('error', validateCartIdExitedError, ctx)
+  }
+}
+
 module.exports = {
   validator,
   validatorGoodsId,
   getCartListParamsValidator,
-  validateRules
+  validateRules,
+  validateCartIdExited
 }

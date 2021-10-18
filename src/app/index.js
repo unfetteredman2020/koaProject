@@ -2,7 +2,7 @@
  * @Author: unfetteredman
  * @Date: 2021-09-30 16:57:51
  * @Last Modified by: unfetteredman
- * @Last Modified time: 2021-10-13 11:02:53
+ * @Last Modified time: 2021-10-18 10:05:40
  * @description: koa 实例路由信息入口文件
  */
 
@@ -30,7 +30,8 @@ app.use(koaBody({
   formidable: {
     uploadDir: path.join(__dirname, '../public/upload/img'),
     keepExtensions: true
-  }
+  },
+  parsedMethods:['POST', 'PUT', 'PATCH', 'GET', 'DELETE']
 }));
 
 app.use(parameter(app));

@@ -100,5 +100,20 @@ module.exports = {
     code: '103006',
     msg: '更新购物车失败！',
     result: ''
+  },
+  validateCartIdExitedError: {
+    code: '103007',
+    msg: '购物车Id不存在，删除购物车失败！',
+    result: ''
+  },
+  deleteCartError: {
+    code: '103008',
+    msg: '删除购物车失败！',
+    result: ''
+  },
+  selectAllCartGoodsError: {
+    code: '10310',
+    msg: '购物车全选失败',
+    result: ''
   }
 }

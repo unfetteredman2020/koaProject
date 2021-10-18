@@ -1,7 +1,7 @@
 
-const { createOrUpdate, getCartListService, updateCartService } = require('../service/cart.service');
+const { createOrUpdate, getCartListService, updateCartService, deleteCartService, selectAllCartGoodsService } = require('../service/cart.service');
 
-const { addCartError, getCartListError, updateCartError } = require('../constant/error.type')
+const { addCartError, getCartListError, updateCartError, deleteCartError, selectAllCartGoodsError } = require('../constant/error.type')
 
 class Cart {
   async addCartController (ctx) {
@@ -45,6 +45,38 @@ class Cart {
       console.error('updateCartError', error);
       updateCartError.resut = error
       return ctx.app.emit('error', updateCartError, ctx)
+    }
+  }
+  async deleteCartController (ctx) {
+    try {
+      const res = await deleteCartService(ctx.request.body.ids)
+      console.log(`deleteCartService`, res)
+      ctx.body = {
+        code: '103007',
+        msg: '删除购物车成功！',
+        result: res
+      }
+    } catch (error) {
+      console.log(`error`, error)
+      deleteCartError.result = error
+      return ctx.app.emit('error', deleteCartError, ctx)
+    }
+  }
+  async selectAllCartGoodsController(ctx) {
+    try {
+      const {  goods_selected } = ctx.request.body;
+      let msg =  goods_selected ? '购物车全选成功' : '购物车取消全选成功' 
+      const res = await selectAllCartGoodsService(ctx.request.body)
+      console.log(`msg`, msg,goods_selected )
+      ctx.body = {
+        code: '103008',
+        msg,
+        result: res
+      }
+    } catch (error) {
+      console.error('selectAllCartGoodsError', error)
+      selectAllCartGoodsError.result = error
+      return ctx.app.emit('error', selectAllCartGoodsError, ctx)
     }
   }
 }

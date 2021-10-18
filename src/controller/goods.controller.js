@@ -22,7 +22,7 @@ class GoodsController {
   // 创建商品
   async goodsUploadController (ctx) {
     try {
-      ctx.request.body.goods_img = JSON.stringify(ctx.request.body.goods_img)
+      // ctx.request.body.goods_img = JSON.stringify(ctx.request.body.goods_img)
       const res = await createGoodsService(ctx.request.body)
       console.log(`res222`, res)
       ctx.body = {
@@ -39,7 +39,7 @@ class GoodsController {
   // 更新商品
   async goodsUpdateController (ctx)  {
     try {
-      ctx.request.body.goods_img = JSON.stringify(ctx.request.body.goods_img )
+      // ctx.request.body.goods_img = JSON.stringify(ctx.request.body.goods_img )
       if(await updateGoodsService(ctx.params.id, ctx.request.body)) {
         ctx.body = {
           code: '0',

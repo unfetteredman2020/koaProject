@@ -25,8 +25,8 @@ class CartService {
   async validateCartIdExistService (id) {
     let res = await Cart.findOne({
       where: {
-        [Op.and]: {
-          id,
+        id: {
+          [Op.in]: id
         }
       }
     })
@@ -59,6 +59,26 @@ class CartService {
     goods_count ? (res.goods_count = goods_count): '';
     goods_selected ? (res.goods_selected = goods_selected) : '';
     return await  res.save()
+  }
+  // 删除购物车
+  async deleteCartService(ids) {
+    return await Cart.destroy({
+      where: {
+        id: {
+          [Op.in]: ids
+        }
+      }
+    })
+  }
+  // 购物车 全选 & 全不选
+  async selectAllCartGoodsService(params) {
+    const { user_id, goods_selected } = params
+    console.log(`id`, )
+    return await Cart.update({ goods_selected }, {
+      where: {
+        user_id
+      }
+    })
   }
 }
 

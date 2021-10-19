@@ -135,5 +135,15 @@ module.exports = {
     code: '10407',
     msg: '更新参数错误，更新失败',
     result: ''
+  },
+  createOrderError: {
+    code: '10501',
+    msg: '创建订单失败',
+    result: ''
+  },
+  createOrderParamsError: {
+    code: '10502',
+    msg: '订单参数错误',
+    result: ''
   }
 }

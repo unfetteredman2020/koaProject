@@ -115,5 +115,25 @@ module.exports = {
     code: '10310',
     msg: '购物车全选失败',
     result: ''
+  },
+  addAddressError: {
+    code: '10401',
+    msg: '添加地址失败',
+    result: ''
+  },
+  delAddressError: {
+    code: '10405',
+    msg: '删除地址失败',
+    result: ''
+  },
+  addressParamsError: {
+    code: '10406',
+    msg: '参数错误',
+    result: ''
+  },
+  updateAddressError: {
+    code: '10407',
+    msg: '更新参数错误，更新失败',
+    result: ''
   }
 }

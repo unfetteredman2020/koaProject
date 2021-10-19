@@ -363,3 +363,57 @@
     /* ------------------------------------------------------------------------------------------ */
     {"code":"101002","msg":"token验证失败！","result":""}
   
+    /* 2021-10-19 11:30:01 */
+    /* ------------------------------------------------------------------------------------------ */
+    {"code":"10401","msg":"添加地址失败","result":{"name":"SequelizeDatabaseError","parent":{"code":"ER_WARN_DATA_OUT_OF_RANGE","errno":1264,"sqlState":"22003","sqlMessage":"Out of range value for column 'mobile' at row 1","sql":"INSERT INTO `addresses` (`id`,`user_id`,`default_address`,`user_name`,`mobile`,`region`,`detailedAddress`,`houseNumber`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?,?,?,?);","parameters":["1",false,"tom",18219836032,"浙江省杭州市西湖区","五联西苑","286号","2021-10-19 03:30:01","2021-10-19 03:30:01"]},"original":{"code":"ER_WARN_DATA_OUT_OF_RANGE","errno":1264,"sqlState":"22003","sqlMessage":"Out of range value for column 'mobile' at row 1","sql":"INSERT INTO `addresses` (`id`,`user_id`,`default_address`,`user_name`,`mobile`,`region`,`detailedAddress`,`houseNumber`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?,?,?,?);","parameters":["1",false,"tom",18219836032,"浙江省杭州市西湖区","五联西苑","286号","2021-10-19 03:30:01","2021-10-19 03:30:01"]},"sql":"INSERT INTO `addresses` (`id`,`user_id`,`default_address`,`user_name`,`mobile`,`region`,`detailedAddress`,`houseNumber`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?,?,?,?);","parameters":["1",false,"tom",18219836032,"浙江省杭州市西湖区","五联西苑","286号","2021-10-19 03:30:01","2021-10-19 03:30:01"]}}
+  
+    /* 2021-10-19 11:44:38 */
+    /* ------------------------------------------------------------------------------------------ */
+    {"code":"101001","msg":"token已过期！","result":""}
+  
+    /* 2021-10-19 14:55:46 */
+    /* ------------------------------------------------------------------------------------------ */
+    {"code":"10406","msg":"删除地址失败","result":{"message":"Validation Failed","code":"INVALID_PARAM","errors":[{"message":"should be a string","code":"invalid","field":"user_id"}],"params":{"user_id":1,"default_address":false,"user_name":"tom","mobile":"18219836032","region":"浙江省杭州市西湖区23","detailedAddress":"五联西苑23","houseNumber":"28号"}}}
+  
+    /* 2021-10-19 14:58:44 */
+    /* ------------------------------------------------------------------------------------------ */
+    {"code":"10406","msg":"删除地址失败","result":{"message":"Validation Failed","code":"INVALID_PARAM","errors":[{"message":"should be an array","code":"invalid","field":"id"}],"params":{"user_id":"1","id":1}}}
+  
+    /* 2021-10-19 14:58:59 */
+    /* ------------------------------------------------------------------------------------------ */
+    {"code":"10406","msg":"删除地址失败","result":{"message":"Validation Failed","code":"INVALID_PARAM","errors":[{"message":"should be a string","code":"invalid","field":"user_id"}],"params":{"user_id":1,"id":[3,4]}}}
+  
+    /* 2021-10-19 15:09:29 */
+    /* ------------------------------------------------------------------------------------------ */
+    {"code":"10406","msg":"删除地址失败","result":{"message":"Validation Failed","code":"INVALID_PARAM","errors":[{"message":"required","field":"user_id","code":"missing_field"},{"message":"should be an array","code":"invalid","field":"id"}],"params":{"id":"1"}}}
+  
+    /* 2021-10-19 15:09:46 */
+    /* ------------------------------------------------------------------------------------------ */
+    {"code":"10406","msg":"删除地址失败","result":{"message":"Validation Failed","code":"INVALID_PARAM","errors":[{"message":"required","field":"user_id","code":"missing_field"}],"params":{"id":"1"}}}
+  
+    /* 2021-10-19 15:57:12 */
+    /* ------------------------------------------------------------------------------------------ */
+    {"code":"10406","msg":"删除地址失败","result":{"message":"Validation Failed","code":"INVALID_PARAM","errors":[{"message":"required","field":"id","code":"missing_field"}],"params":{"user_id":"1","default_address":false,"user_name":"tom","mobile":"18219836032","region":"浙江省杭州市西湖区2","detailedAddress":"五联西苑2","houseNumber":"28号"}}}
+  
+    /* 2021-10-19 15:58:45 */
+    /* ------------------------------------------------------------------------------------------ */
+    {"code":"10406","msg":"参数错误，删除地址失败","result":{"message":"Validation Failed","code":"INVALID_PARAM","errors":[{"message":"required","field":"id","code":"missing_field"}],"params":{"user_id":"1","default_address":false,"user_name":"tom","mobile":"18219836032","region":"浙江省杭州市西湖区2","detailedAddress":"五联西苑2","houseNumber":"28号"}}}
+  
+    /* 2021-10-19 15:59:49 */
+    /* ------------------------------------------------------------------------------------------ */
+    {"code":"10407","msg":"参数错误，更新失败","result":{}}
+  
+    /* 2021-10-19 16:04:56 */
+    /* ------------------------------------------------------------------------------------------ */
+    {"code":"10406","msg":"参数错误，删除地址失败","result":{"message":"Validation Failed","code":"INVALID_PARAM","errors":[{"message":"required","field":"user_id","code":"missing_field"}],"params":{"id":5,"default_address":false,"user_name":"tom555","mobile":"18219836032","region":"浙江省杭州市西湖区2","detailedAddress":"五联西苑2","houseNumber":"28号"}}}
+  
+    /* 2021-10-19 16:06:09 */
+    /* ------------------------------------------------------------------------------------------ */
+    {"code":"10406","msg":"参数错误","result":{"message":"Validation Failed","code":"INVALID_PARAM","errors":[{"message":"required","field":"user_id","code":"missing_field"}],"params":{"id":5,"default_address":false,"user_name":"tom555","mobile":"18219836032","region":"浙江省杭州市西湖区2","detailedAddress":"五联西苑2","houseNumber":"28号"}}}
+  
+    /* ----------- 2021-10-19 16:22:20------------------------------------------------------------------------------- */
+    {"status":400,"body":"{\n    // \"id\": 5,\n    \"user_id\": \"1\",\n    \"default_address\": false,\n    \"user_name\": \"tom555\",\n    \"mobile\": \"18219836032\",\n    \"region\": \"浙江省杭州市西湖区2\",\n    \"detailedAddress\": \"五联西苑2\",\n    \"houseNumber\": \"28号\"\n}"}
+  
+    /* ----------- 2021-10-19 16:23:32------------------------------------------------------------------------------- */
+    {"code":"10406","msg":"参数错误","result":{"message":"Validation Failed","code":"INVALID_PARAM","errors":[{"message":"required","field":"id","code":"missing_field"}],"params":{"user_id":"1","default_address":false,"user_name":"tom555","mobile":"18219836032","region":"浙江省杭州市西湖区2","detailedAddress":"五联西苑2","houseNumber":"28号"}}}
+  

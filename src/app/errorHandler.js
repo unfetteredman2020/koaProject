@@ -20,8 +20,7 @@ module.exports = (err, ctx) => {
 
   // 将错误写进日志文件
   let errTxt = `
-    /* ${getDate("YYYY-mm-dd HH:MM:SS", new Date())} */
-    /* ------------------------------------------------------------------------------------------ */
+    /* ----------- ${getDate("YYYY-mm-dd HH:MM:SS", new Date())}------------------------------------------------------------------------------- */
     ${JSON.stringify(err)}
   `
   fs.appendFile( errorLogPath, errTxt,{encoding: 'utf-8'}, err=> {
